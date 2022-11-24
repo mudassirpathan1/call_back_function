@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    
+
+  <button id="btn">click me</button>
+
+</body>
+
+</html>
+
+<script src="callback.js">
+
+
+
+    // **********************************
+
+// what is Callback function  ?
+
+
+
+// you take a function and pass at  a another function is know as callback function
+
+
+
+setTimeout(function () {
+
+  console.log("this is call back function also and run 5 sec latter");
+
+}, 5000);
+
+
+
+// //  2nd method overhere
+
+function x(y) {
+
+  console.log("my name is x");
+
+  y();
+
+}
+
+x(function y() {
+
+  console.log("my name is y");
+
+});
+
+
+
+for (let a = 0; a <= 5; a++) {
+
+  setTimeout(function () {
+
+    console.log(a);
+
+  }, a * 1000);
+
+}
+
+// **********************************
+
+// calling the my html page overhere
+
+
+
+document.getElementById("btn").addEventListener("click", function () {
+
+  var count = 0;
+
+  console.log("someone click me", ++count);
+
+});
+
+
+
+setTimeout(() => console.log('timer expired'), 1000)
+
+function x(y) {
+
+
+
+console.log('inside x');
+
+
+
+y();
+
+
+
+}
+
+
+
+x(function y(){
+
+
+
+console.log('inside y')
+
+
+
+})
+
+
+
+// output :=>
+
+// inside x
+
+// inside y
+
+// timer expired
+
+
+
+// 2)
+
+
+
+setTimeout(() => console.log('timer1 expired'), 1000)  // giving the value after excuting the code 1 second
+
+
+
+setTimeout(() => console.log('timer2 expired'), 0) // this is giving value excuting time
+
+function x(y) {
+
+
+
+console.log('inside x');
+
+
+
+y();
+
+
+
+}
+
+x(function y(){
+
+
+
+console.log('inside y')
+
+
+
+})
+
+
+
+// output:=>
+
+// inside x
+
+// inside y
+
+// give the value excuting time
+
+// timer2 expired
+
+// after one seconde come to the answer
+
+// timer1 expired
+
+
+
+// 3)
+
+
+
+setTimeout(() => console.log("timer1 expired"), 1000);
+
+setTimeout(() => console.log("timer2 expired"), 0);
+
+
+
+function x(y) {
+
+  console.log("inside x");
+
+
+
+  y();
+
+}
+
+
+
+x(function y() {
+
+  setTimeout(() => console.log("inside y"), 0);
+
+});
+
+
+
+// output:=>
+
+// \callback.js"
+
+
+
+// sabse pahle ye dega value 
+
+// inside x
+
+// ye turent de dega value ko koi samye nahi lega 
+
+// timer2 expired
+
+// inside y
+
+
+
+// ye 1 second lega tab dega ans 
+
+// timer1 expired
+
+</script>
